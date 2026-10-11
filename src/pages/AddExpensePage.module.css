@@ -1,0 +1,311 @@
+.summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background: var(--error-fill);
+  border: 3px solid var(--error-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.summaryMark {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: var(--line);
+  background: var(--error-border);
+  color: var(--on-action);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.card {
+  background: var(--surface);
+  border: var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-3);
+}
+
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--line);
+  margin-bottom: var(--space-3);
+}
+
+.cardHeading {
+  font-size: 24px;
+  color: var(--action);
+}
+
+.cardNote {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.input,
+.select {
+  width: 100%;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+/* The rupee sign belongs to the box, so it sits inside the same outline. */
+.amountBox {
+  display: flex;
+  align-items: stretch;
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.amountPrefix {
+  flex: none;
+  width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--action);
+  color: var(--on-action);
+  font-weight: 800;
+}
+
+.amountInput {
+  flex: 1;
+  min-width: 0;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: none;
+  background: var(--surface);
+}
+
+.amountInput:focus-visible {
+  outline-offset: -3px;
+}
+
+.input[aria-invalid='true'],
+.select[aria-invalid='true'],
+.shareInput[aria-invalid='true'] {
+  border-color: var(--error-border);
+  background: var(--error-fill);
+}
+
+.amountBox:has(.amountInput[aria-invalid='true']) {
+  border-color: var(--error-border);
+}
+
+.fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.legend {
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  margin-bottom: var(--space-2);
+}
+
+.splitOptions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+}
+
+/* A radio dressed as a button: the real input stays in the label so the
+   keyboard arrow keys and the grouping still work. */
+.splitOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.splitOption:has(input:checked) {
+  background: var(--wall);
+  box-shadow: var(--shadow);
+}
+
+.splitOption:has(input:focus-visible) {
+  outline: 3px solid var(--action);
+  outline-offset: 3px;
+}
+
+.members {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.memberCheck {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap);
+  padding: 0 var(--space-2);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.memberCheck:has(input:checked) {
+  background: var(--cat-activities);
+}
+
+.checkbox,
+.radio {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  accent-color: var(--action);
+}
+
+.shareRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.shareLabel {
+  font-weight: 700;
+}
+
+.shareInput {
+  width: 130px;
+  min-height: var(--tap);
+  padding: 0 var(--space-2);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-align: right;
+}
+
+.shareError {
+  grid-column: 1 / -1;
+}
+
+.assigned {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: var(--line);
+  font-weight: 700;
+}
+
+.assignedBadge {
+  padding: 6px var(--space-3);
+  border: var(--line);
+  border-radius: 999px;
+  background: var(--owes);
+  font-weight: 800;
+}
+
+.assignedDone {
+  background: var(--gets-back);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.button {
+  min-height: var(--tap);
+  padding: 0 var(--space-4);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.save {
+  background: var(--action);
+  color: var(--on-action);
+  box-shadow: var(--shadow);
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .splitOptions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .members {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shareRow {
+    grid-template-columns: 160px 1fr auto;
+  }
+
+  /* The dotted leader between a name and its box, as on a paper bill. */
+  .shareLeader {
+    border-bottom: 3px dotted var(--ink);
+    align-self: center;
+    height: 0;
+  }
+}

@@ -129,7 +129,7 @@ describe('the exact amounts split', () => {
     await user.click(screen.getByRole('radio', { name: 'Exact amounts' }))
     await user.type(screen.getByLabelText('Aarav share in ₹'), '500')
 
-    expect(screen.getByText(/Assigned/)).toHaveTextContent('Assigned ₹500.00 of ₹1250.00')
+    expect(screen.getByText(/Assigned/)).toHaveTextContent('Assigned ₹500.00 of ₹1,250.00')
   })
 
   it('reports a bad box next to that member', async () => {

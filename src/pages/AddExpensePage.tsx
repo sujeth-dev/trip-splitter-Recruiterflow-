@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router'
 import FieldError from '../components/FieldError'
 import Hero from '../components/Hero'
 import { todayLocalISO } from '../domain/dates'
-import { formatINR, formatPercent } from '../domain/money'
+import { formatINR, formatPercent, parseRupeesToPaise } from '../domain/money'
 import { CATEGORIES, type Member } from '../domain/types'
 import {
   makeEmptyDraft,
@@ -27,6 +27,9 @@ const SPLIT_OPTIONS: { value: SplitType; label: string }[] = [
 ]
 
 const NO_ERRORS: DraftErrors = {}
+
+/** 100% in basis points, the unit percentages are compared in. */
+const PERCENT_TOTAL = 10000
 
 /** Reads a per-member error without tripping over a missing key. */
 function shareErrorFor(errors: DraftErrors, memberId: string): string | undefined {
@@ -378,7 +381,7 @@ type ShareFieldsProps = {
 
 function ShareFields({ members, kind, legendSuffix, values, errors, onChange }: ShareFieldsProps) {
   return (
-    <div className={styles.members}>
+    <div className={styles.shares}>
       {members.map((member) => {
         const inputId = `${kind}-${member.id}`
         const message = shareErrorFor(errors, member.id)
@@ -419,34 +422,41 @@ type AssignedLineProps = {
 }
 
 /**
- * The running total under the share boxes. It updates on every keystroke so
- * the user can see the gap closing, rather than finding out only on Save.
+ * The running total under the share boxes. It updates on every keystroke, so
+ * the user watches the gap close instead of finding out only when they save.
  */
 function AssignedLine({ draft, members, splitError }: AssignedLineProps) {
   const isPercent = draft.splitType === 'percent'
 
+  // Percentages always aim at the same target; exact amounts aim at whatever
+  // is currently in the Amount box, which may not be a readable number yet.
   const assigned = isPercent ? sumPercentShares(draft, members) : sumExactShares(draft, members)
-  const target = isPercent ? 10000 : null
+  const amount = parseRupeesToPaise(draft.amount)
 
   const assignedText = isPercent ? formatPercent(assigned) : formatINR(assigned)
-  const targetText = isPercent ? formatPercent(10000) : draft.amount.trim()
+  const targetText = isPercent
+    ? formatPercent(PERCENT_TOTAL)
+    : amount.ok
+      ? formatINR(amount.paise)
+      : null
 
-  const isDone = isPercent ? assigned === target : splitError === undefined
+  const isDone = isPercent ? assigned === PERCENT_TOTAL : amount.ok && assigned === amount.paise
 
   return (
     <p className={styles.assigned}>
       <span>
         Assigned <span className="money">{assignedText}</span>
-        {targetText === '' ? null : <> of {isPercent ? targetText : `₹${targetText}`}</>}
+        {targetText === null ? null : <> of {targetText}</>}
       </span>
+
       {splitError === undefined ? (
-        <span className={`${styles.assignedBadge} ${isDone ? styles.assignedDone : ''}`}>
+        <span
+          className={`${styles.assignedBadge} ${isDone ? styles.assignedDone : styles.assignedTodo}`}
+        >
           {isDone ? 'All assigned' : 'Keep going'}
         </span>
       ) : (
-        <span className={styles.assignedBadge} id="split-total-error">
-          {splitError}
-        </span>
+        <span className={styles.assignedBadge}>{splitError}</span>
       )}
     </p>
   )

@@ -33,13 +33,13 @@
 .Other { background: var(--cat-other); }
 
 @media (max-width: 639px) {
+  /* One scrolling strip rather than three wrapped rows. The scroll is kept
+     inside the element so the page itself never moves sideways. */
   .filter {
+    width: 100%;
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: var(--space-1);
-    /* Let the strip reach the screen edges so it reads as scrollable. */
-    margin-inline: calc(var(--space-3) * -1);
-    padding-inline: var(--space-3);
   }
 
   .chip {

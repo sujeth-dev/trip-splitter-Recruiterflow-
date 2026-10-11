@@ -208,11 +208,24 @@
   accent-color: var(--action);
 }
 
+.shares {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
 .shareRow {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
   gap: var(--space-2) var(--space-3);
+}
+
+/* The dotted leader is pure decoration, so it only appears once there is
+   room for it. Hidden rather than empty, so it claims no grid cell. */
+.shareLeader {
+  display: none;
 }
 
 .shareLabel {
@@ -251,6 +264,10 @@
   border-radius: 999px;
   background: var(--owes);
   font-weight: 800;
+}
+
+.assignedTodo {
+  background: var(--cat-other);
 }
 
 .assignedDone {
@@ -299,11 +316,12 @@
   }
 
   .shareRow {
-    grid-template-columns: 160px 1fr auto;
+    grid-template-columns: 170px 1fr auto;
   }
 
   /* The dotted leader between a name and its box, as on a paper bill. */
   .shareLeader {
+    display: block;
     border-bottom: 3px dotted var(--ink);
     align-self: center;
     height: 0;

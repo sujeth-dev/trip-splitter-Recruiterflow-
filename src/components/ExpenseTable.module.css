@@ -102,6 +102,13 @@
   /* Every element below keeps an explicit ARIA role in the markup, because
      changing `display` on a table element otherwise strips its semantics and
      a screen reader stops announcing it as a table at all. */
+  .table,
+  .table tbody,
+  .table tfoot {
+    display: block;
+    width: 100%;
+  }
+
   .table thead {
     position: absolute;
     width: 1px;
@@ -172,8 +179,20 @@
     display: inline;
   }
 
+  .totalRow {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+    border-top: var(--line);
+    padding-top: var(--space-3);
+  }
+
   .totalRow th,
   .totalRow td {
+    display: block;
+    border-top: none;
+    padding-top: 0;
     font-size: 20px;
   }
 }

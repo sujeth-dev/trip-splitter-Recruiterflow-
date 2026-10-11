@@ -82,7 +82,7 @@ export default function ExpenseTable({
 
         <tfoot role="rowgroup">
           <tr role="row" className={styles.totalRow}>
-            <th role="columnheader" scope="row" colSpan={4}>Total shown</th>
+            <th role="rowheader" scope="row" colSpan={4}>Total shown</th>
             <td role="cell" className={`${styles.totalAmount} money`} colSpan={3}>
               {formatINR(totalPaise)}
             </td>

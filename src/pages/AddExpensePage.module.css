@@ -25,12 +25,25 @@
   font-weight: 800;
 }
 
+/* Same trick as the receipt: one drop-shadow around the card and its zigzag
+   together, so the torn bottom edge gets the ink outline too. */
+.frame {
+  filter: drop-shadow(6px 6px 0 var(--ink));
+}
+
 .card {
   background: var(--surface);
   border: var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   padding: var(--space-3);
+}
+
+.zigzag {
+  height: 14px;
+  background:
+    linear-gradient(135deg, var(--surface) 50%, transparent 50%) 0 0 / 18px 14px repeat-x,
+    linear-gradient(225deg, var(--surface) 50%, transparent 50%) 0 0 / 18px 14px repeat-x;
 }
 
 .cardHead {

@@ -170,16 +170,17 @@ export default function ExpensesPage() {
             }
           />
         ) : (
-          <div className={styles.receipt}>
-            <div className={styles.receiptHead}>
-              <h3 className={styles.receiptHeading} id="receipt-heading" tabIndex={-1} ref={billHeadingRef}>
-                Table for five
-              </h3>
-              {hasNoExpensesAtAll ? null : (
-                <p className={styles.receiptCount}>
-                  {visibleExpenses.length} {itemNoun}, newest first
-                </p>
-              )}
+          <div className={styles.receiptFrame}>
+            <div className={styles.receipt}>
+              <div className={styles.receiptHead}>
+                <h3 className={styles.receiptHeading} id="receipt-heading" tabIndex={-1} ref={billHeadingRef}>
+                  Table for five
+                </h3>
+                {hasNoExpensesAtAll ? null : (
+                  <p className={styles.receiptCount}>
+                    {visibleExpenses.length} {itemNoun}, newest first
+                  </p>
+        )}
             </div>
 
             {hasNoExpensesAtAll ? (
@@ -206,6 +207,7 @@ export default function ExpensesPage() {
                 onDelete={setPendingDelete}
               />
             )}
+            </div>
 
             <div className={styles.zigzag} aria-hidden="true" />
           </div>

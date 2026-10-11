@@ -143,203 +143,207 @@ export default function AddExpensePage() {
         </div>
       ) : null}
 
-      <form
-        className={styles.card}
-        noValidate
-        onSubmit={(event) => {
-          // Without this the browser reloads the page on submit; React Router
-          // owns navigation here instead.
-          event.preventDefault()
-          handleSubmit()
-        }}
-      >
-        <div className={styles.cardHead}>
-          <h2 className={styles.cardHeading}>New item</h2>
-          <p className={styles.cardNote}>Table for five</p>
-        </div>
-
-        <div className={styles.fields}>
-          <div className={styles.field}>
-            <label className={styles.label} htmlFor="description">
-              Description
-            </label>
-            <input
-              id="description"
-              className={styles.input}
-              type="text"
-              value={draft.description}
-              placeholder="Fish thali at Britto’s"
-              aria-invalid={errors.description !== undefined}
-              aria-describedby={errors.description === undefined ? undefined : 'description-error'}
-              onChange={(event) => {
-                update({ description: event.target.value })
-              }}
-            />
-            <FieldError id="description-error" message={errors.description} />
+      <div className={styles.frame}>
+        <form
+          className={styles.card}
+          noValidate
+          onSubmit={(event) => {
+            // Without this the browser reloads the page on submit; React Router
+            // owns navigation here instead.
+            event.preventDefault()
+            handleSubmit()
+          }}
+        >
+          <div className={styles.cardHead}>
+            <h2 className={styles.cardHeading}>New item</h2>
+            <p className={styles.cardNote}>Table for five</p>
           </div>
 
-          <div className={styles.grid}>
+          <div className={styles.fields}>
             <div className={styles.field}>
-              <label className={styles.label} htmlFor="amount">
-                Amount
-              </label>
-              <div className={styles.amountBox}>
-                <span className={styles.amountPrefix} aria-hidden="true">
-                  ₹
-                </span>
-                <input
-                  id="amount"
-                  className={`${styles.amountInput} money`}
-                  type="text"
-                  inputMode="decimal"
-                  value={draft.amount}
-                  placeholder="1250.00"
-                  aria-invalid={errors.amount !== undefined}
-                  aria-describedby={errors.amount === undefined ? undefined : 'amount-error'}
-                  onChange={(event) => {
-                    update({ amount: event.target.value })
-                  }}
-                />
-              </div>
-              <FieldError id="amount-error" message={errors.amount} />
-            </div>
-
-            <div className={styles.field}>
-              <label className={styles.label} htmlFor="date">
-                Date
+              <label className={styles.label} htmlFor="description">
+                Description
               </label>
               <input
-                id="date"
+                id="description"
                 className={styles.input}
-                type="date"
-                value={draft.date}
-                max={today}
-                aria-invalid={errors.date !== undefined}
-                aria-describedby={errors.date === undefined ? undefined : 'date-error'}
+                type="text"
+                value={draft.description}
+                placeholder="Fish thali at Britto’s"
+                aria-invalid={errors.description !== undefined}
+                aria-describedby={errors.description === undefined ? undefined : 'description-error'}
                 onChange={(event) => {
-                  update({ date: event.target.value })
+                  update({ description: event.target.value })
                 }}
               />
-              <FieldError id="date-error" message={errors.date} />
+              <FieldError id="description-error" message={errors.description} />
             </div>
 
-            <div className={styles.field}>
-              <label className={styles.label} htmlFor="paidBy">
-                Paid by
-              </label>
-              <select
-                id="paidBy"
-                className={styles.select}
-                value={draft.paidBy}
-                aria-invalid={errors.paidBy !== undefined}
-                aria-describedby={errors.paidBy === undefined ? undefined : 'paidBy-error'}
-                onChange={(event) => {
-                  update({ paidBy: event.target.value })
-                }}
-              >
-                <option value="">Pick a person</option>
-                {members.map((member) => (
-                  <option key={member.id} value={member.id}>
-                    {member.name}
-                  </option>
-                ))}
-              </select>
-              <FieldError id="paidBy-error" message={errors.paidBy} />
-            </div>
-
-            <div className={styles.field}>
-              <label className={styles.label} htmlFor="category">
-                Category
-              </label>
-              <select
-                id="category"
-                className={styles.select}
-                value={draft.category}
-                aria-invalid={errors.category !== undefined}
-                aria-describedby={errors.category === undefined ? undefined : 'category-error'}
-                onChange={(event) => {
-                  update({ category: event.target.value })
-                }}
-              >
-                <option value="">Pick a category</option>
-                {CATEGORIES.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-              <FieldError id="category-error" message={errors.category} />
-            </div>
-          </div>
-
-          <fieldset className={styles.fieldset}>
-            <legend className={styles.legend}>How should it be split?</legend>
-
-            <div className={styles.splitOptions}>
-              {SPLIT_OPTIONS.map((option) => (
-                <label key={option.value} className={styles.splitOption}>
+            <div className={styles.grid}>
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="amount">
+                  Amount
+                </label>
+                <div className={styles.amountBox}>
+                  <span className={styles.amountPrefix} aria-hidden="true">
+                    ₹
+                  </span>
                   <input
-                    className={styles.radio}
-                    type="radio"
-                    name="splitType"
-                    value={option.value}
-                    checked={draft.splitType === option.value}
-                    onChange={() => {
-                      update({ splitType: option.value })
+                    id="amount"
+                    className={`${styles.amountInput} money`}
+                    type="text"
+                    inputMode="decimal"
+                    value={draft.amount}
+                    placeholder="1250.00"
+                    aria-invalid={errors.amount !== undefined}
+                    aria-describedby={errors.amount === undefined ? undefined : 'amount-error'}
+                    onChange={(event) => {
+                      update({ amount: event.target.value })
                     }}
                   />
-                  {option.label}
+                </div>
+                <FieldError id="amount-error" message={errors.amount} />
+              </div>
+
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="date">
+                  Date
                 </label>
-              ))}
+                <input
+                  id="date"
+                  className={styles.input}
+                  type="date"
+                  value={draft.date}
+                  max={today}
+                  aria-invalid={errors.date !== undefined}
+                  aria-describedby={errors.date === undefined ? undefined : 'date-error'}
+                  onChange={(event) => {
+                    update({ date: event.target.value })
+                  }}
+                />
+                <FieldError id="date-error" message={errors.date} />
+              </div>
+
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="paidBy">
+                  Paid by
+                </label>
+                <select
+                  id="paidBy"
+                  className={styles.select}
+                  value={draft.paidBy}
+                  aria-invalid={errors.paidBy !== undefined}
+                  aria-describedby={errors.paidBy === undefined ? undefined : 'paidBy-error'}
+                  onChange={(event) => {
+                    update({ paidBy: event.target.value })
+                  }}
+                >
+                  <option value="">Pick a person</option>
+                  {members.map((member) => (
+                    <option key={member.id} value={member.id}>
+                      {member.name}
+                    </option>
+                  ))}
+                </select>
+                <FieldError id="paidBy-error" message={errors.paidBy} />
+              </div>
+
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="category">
+                  Category
+                </label>
+                <select
+                  id="category"
+                  className={styles.select}
+                  value={draft.category}
+                  aria-invalid={errors.category !== undefined}
+                  aria-describedby={errors.category === undefined ? undefined : 'category-error'}
+                  onChange={(event) => {
+                    update({ category: event.target.value })
+                  }}
+                >
+                  <option value="">Pick a category</option>
+                  {CATEGORIES.map((category) => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
+                <FieldError id="category-error" message={errors.category} />
+              </div>
             </div>
 
-            {draft.splitType === 'equal' ? (
-              <EqualSplitFields
-                members={members}
-                selectedMemberIds={draft.selectedMemberIds}
-                onToggle={toggleMember}
-              />
-            ) : null}
+            <fieldset className={styles.fieldset}>
+              <legend className={styles.legend}>How should it be split?</legend>
 
-            {draft.splitType === 'exact' ? (
-              <ShareFields
-                members={members}
-                kind="exactShares"
-                legendSuffix="share in ₹"
-                values={draft.exactShares}
-                errors={errors}
-                onChange={setShare}
-              />
-            ) : null}
+              <div className={styles.splitOptions}>
+                {SPLIT_OPTIONS.map((option) => (
+                  <label key={option.value} className={styles.splitOption}>
+                    <input
+                      className={styles.radio}
+                      type="radio"
+                      name="splitType"
+                      value={option.value}
+                      checked={draft.splitType === option.value}
+                      onChange={() => {
+                        update({ splitType: option.value })
+                      }}
+                    />
+                    {option.label}
+                  </label>
+                ))}
+              </div>
 
-            {draft.splitType === 'percent' ? (
-              <ShareFields
-                members={members}
-                kind="percentShares"
-                legendSuffix="share in %"
-                values={draft.percentShares}
-                errors={errors}
-                onChange={setShare}
-              />
-            ) : null}
+              {draft.splitType === 'equal' ? (
+                <EqualSplitFields
+                  members={members}
+                  selectedMemberIds={draft.selectedMemberIds}
+                  onToggle={toggleMember}
+                />
+              ) : null}
 
-            {draft.splitType === 'equal' ? null : (
-              <AssignedLine draft={draft} members={members} splitError={errors.split} />
-            )}
+              {draft.splitType === 'exact' ? (
+                <ShareFields
+                  members={members}
+                  kind="exactShares"
+                  legendSuffix="share in ₹"
+                  values={draft.exactShares}
+                  errors={errors}
+                  onChange={setShare}
+                />
+              ) : null}
 
-            <FieldError id="split-error" message={draft.splitType === 'equal' ? errors.split : undefined} />
-          </fieldset>
-        </div>
+              {draft.splitType === 'percent' ? (
+                <ShareFields
+                  members={members}
+                  kind="percentShares"
+                  legendSuffix="share in %"
+                  values={draft.percentShares}
+                  errors={errors}
+                  onChange={setShare}
+                />
+              ) : null}
 
-        <div className={styles.actions}>
-          <button type="button" className={styles.button} onClick={handleCancel}>
-            Cancel
-          </button>
-          <button type="submit" className={`${styles.button} ${styles.save}`}>
-            Save expense
-          </button>
-        </div>
-      </form>
+              {draft.splitType === 'equal' ? null : (
+                <AssignedLine draft={draft} members={members} splitError={errors.split} />
+              )}
+
+              <FieldError id="split-error" message={draft.splitType === 'equal' ? errors.split : undefined} />
+            </fieldset>
+          </div>
+
+          <div className={styles.actions}>
+            <button type="button" className={styles.button} onClick={handleCancel}>
+              Cancel
+            </button>
+            <button type="submit" className={`${styles.button} ${styles.save}`}>
+              Save expense
+            </button>
+          </div>
+        </form>
+
+        <div className={styles.zigzag} aria-hidden="true" />
+      </div>
     </>
   )
 }

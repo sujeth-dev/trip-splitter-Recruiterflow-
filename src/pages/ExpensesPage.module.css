@@ -22,11 +22,21 @@
   max-width: 52ch;
 }
 
+/* One ink outline traced around the whole silhouette: the rounded card and
+   the zigzag teeth beneath it. A box-shadow cannot do this -- it always draws
+   the element's rectangle, so the teeth would have no outline at all. */
+.receiptFrame {
+  filter: drop-shadow(6px 6px 0 var(--ink));
+}
+
 .receipt {
   background: var(--surface);
   border: var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
+  /* No bottom border and square bottom corners, because the zigzag below is
+     the bottom edge. Rounding here would leave the square zigzag strip
+     poking out past the curve as two white patches. */
+  border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   padding: var(--space-3);
 }
 
@@ -52,10 +62,10 @@
 }
 
 /* The torn-off bottom edge of a paper receipt: two gradients meeting in a
-   zigzag. Decoration only, so it is hidden from screen readers. */
+   zigzag. A sibling of the card, not a child, so it spans the full width with
+   no padding to fight. Decoration only, so it is hidden from screen readers. */
 .zigzag {
   height: 14px;
-  margin: var(--space-3) calc(var(--space-3) * -1) calc(var(--space-3) * -1);
   background:
     linear-gradient(135deg, var(--surface) 50%, transparent 50%) 0 0 / 18px 14px repeat-x,
     linear-gradient(225deg, var(--surface) 50%, transparent 50%) 0 0 / 18px 14px repeat-x;

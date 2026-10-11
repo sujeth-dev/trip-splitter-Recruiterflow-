@@ -1,0 +1,56 @@
+.empty {
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+/* The filter empty state sits on its own dashed card; the no-expenses one
+   sits inside the receipt, which already has a solid border. */
+.standalone {
+  border: 3px dashed var(--ink);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.chip {
+  padding: 4px var(--space-3);
+  border: var(--line);
+  border-radius: 999px;
+  background: var(--cat-other);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.body {
+  margin: 0;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  margin-top: var(--space-1);
+  padding: 0 var(--space-3);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--action);
+  color: var(--on-action);
+  box-shadow: var(--shadow);
+}

@@ -1,0 +1,48 @@
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.chip:hover {
+  box-shadow: var(--shadow);
+}
+
+/* aria-pressed is the source of truth for "this filter is on", so the styling
+   hangs off the same attribute rather than a separate class. */
+.chip[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.Food { background: var(--cat-food); }
+.Travel { background: var(--cat-travel); }
+.Stay { background: var(--cat-stay); }
+.Activities { background: var(--cat-activities); }
+.Other { background: var(--cat-other); }
+
+@media (max-width: 639px) {
+  .filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+    /* Let the strip reach the screen edges so it reads as scrollable. */
+    margin-inline: calc(var(--space-3) * -1);
+    padding-inline: var(--space-3);
+  }
+
+  .chip {
+    flex: none;
+  }
+}

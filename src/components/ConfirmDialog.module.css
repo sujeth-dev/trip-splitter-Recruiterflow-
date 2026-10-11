@@ -1,0 +1,52 @@
+.dialog {
+  width: min(420px, calc(100vw - 32px));
+  padding: 0;
+  border: var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.dialog::backdrop {
+  background: rgba(16, 24, 58, 0.55);
+}
+
+.inner {
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: 26px;
+}
+
+.body {
+  margin: 0;
+  color: var(--muted);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.button {
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.confirm {
+  background: var(--error-border);
+  color: var(--on-action);
+  box-shadow: var(--shadow);
+}

@@ -1,0 +1,179 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  padding: var(--space-2) var(--space-2) var(--space-2) 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  border-bottom: 2px dotted var(--ink);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: var(--space-3) var(--space-2) var(--space-3) 0;
+  border-bottom: 2px dotted var(--ink);
+  vertical-align: middle;
+}
+
+.description {
+  font-weight: 700;
+}
+
+.date {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.amount,
+.amountHeader {
+  text-align: right;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.split {
+  color: var(--muted);
+}
+
+.chip {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.Food { background: var(--cat-food); }
+.Travel { background: var(--cat-travel); }
+.Stay { background: var(--cat-stay); }
+.Activities { background: var(--cat-activities); }
+.Other { background: var(--cat-other); }
+
+.actions {
+  text-align: right;
+  padding-right: 0;
+}
+
+.deleteButton {
+  width: var(--tap);
+  height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background: var(--owes);
+}
+
+.totalRow th,
+.totalRow td {
+  border-bottom: none;
+  border-top: var(--line);
+  padding-top: var(--space-3);
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+
+.totalAmount {
+  text-align: right;
+  color: var(--action);
+}
+
+/* Only shown once the table has collapsed into cards, where there are no
+   column headings to lean on. Real text in the DOM, not CSS content, so it
+   is announced like any other word. */
+.paidSuffix {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  /* Every element below keeps an explicit ARIA role in the markup, because
+     changing `display` on a table element otherwise strips its semantics and
+     a screen reader stops announcing it as a table at all. */
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .table tbody tr {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2px var(--space-2);
+    padding: var(--space-3) 0;
+    border-bottom: 2px dotted var(--ink);
+  }
+
+  .table tbody td {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .description {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .amount {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  .date {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 14px;
+  }
+
+  .category {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .paidBy {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .split {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 14px;
+  }
+
+  .actions {
+    grid-column: 3;
+    grid-row: 1 / span 3;
+    align-self: center;
+  }
+
+  .paidSuffix {
+    display: inline;
+  }
+
+  .totalRow th,
+  .totalRow td {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,104 @@
+.hero {
+  border: var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background: var(--wall);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: clamp(38px, 11vw, 76px);
+  max-width: 14ch;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 500;
+  max-width: 48ch;
+}
+
+/* The cobalt "spent together" sticker, tilted like a shop sign. */
+.sticker {
+  align-self: flex-start;
+  padding: var(--space-2) var(--space-3);
+  border: var(--line);
+  border-radius: var(--radius);
+  background: var(--action);
+  color: var(--on-action);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: rotate(-3deg);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.stickerLabel {
+  display: block;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.stickerAmount {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 9vw, 44px);
+}
+
+/* The striped shack awning that sits under every hero. */
+.awning {
+  height: 32px;
+  border-top: var(--line);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--action) 0 18px,
+    var(--surface) 18px 36px
+  );
+}
+
+@media (min-width: 768px) {
+  .inner {
+    padding: var(--space-5);
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .sticker {
+    flex: none;
+    transform: rotate(6deg);
+    margin-top: var(--space-2);
+  }
+
+  .stickerAmount {
+    font-size: 56px;
+  }
+
+  .awning {
+    height: 44px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--action) 0 26px,
+      var(--surface) 26px 52px
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker {
+    transform: none;
+  }
+}

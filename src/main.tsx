@@ -1,8 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router'
 import './styles/tokens.css'
 import './index.css'
-import App from './App.tsx'
+import AppRoutes from './App.tsx'
+import { browserStore } from './store/browserStore.ts'
 
 // The template used `document.getElementById('root')!`. The `!` tells
 // TypeScript "trust me, it's not null". We check instead, so a missing
@@ -14,6 +17,10 @@ if (rootElement === null) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <Provider store={browserStore}>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </Provider>
   </StrictMode>,
 )

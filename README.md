@@ -2,6 +2,8 @@
 
 Five friends, one Goa trip, and the question of who owes whom.
 
+**Live:** <https://trip-splitter-recruiterflow.vercel.app>
+
 ## How I work
 
 My strength is product and interaction design: turning a brief into an experience that feels alive and is easy to use. For this project I spent most of my effort deciding what the app should do and how it should feel. I explored several visual directions and chose a Goa "beach-shack bill" theme. I designed how balances, errors and empty states should read. I wrote a detailed specification of the behaviour, rules and edge cases ([docs/BUILD_PROMPT.md](docs/BUILD_PROMPT.md)), and the approved designs are in [docs/design/](docs/design/).

@@ -1,0 +1,89 @@
+.bar {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--action);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.brand:hover {
+  text-decoration: underline;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 var(--space-3);
+  border: var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Cobalt means "you can press this", so the main action wears it. */
+.primary {
+  background: var(--action);
+  color: var(--on-action);
+}
+
+/* React Router sets aria-current on the link for the page you are on, so the
+   accessible state and the visible state come from the same attribute. */
+.link[aria-current='page'] {
+  background: var(--ink);
+  color: var(--surface);
+}
+
+.plus {
+  font-size: 22px;
+  line-height: 1;
+}
+
+@media (max-width: 479px) {
+  .brand {
+    font-size: 24px;
+  }
+
+  .link {
+    padding: 0 var(--space-2);
+  }
+
+  /* The + on its own is enough at this width; the label stays for screen
+     readers so the link is still announced as "Add expense". */
+  .addLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .primary {
+    width: var(--tap);
+    padding: 0;
+  }
+}

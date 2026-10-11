@@ -1,0 +1,36 @@
+/* Global base styles. Component styles will live in *.module.css files. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Visible keyboard focus everywhere (part of "full keyboard support"). */
+:focus-visible {
+  outline: 3px solid var(--action);
+  outline-offset: 3px;
+}
+
+/* Money columns line up when every digit is the same width. */
+.money {
+  font-variant-numeric: tabular-nums;
+}

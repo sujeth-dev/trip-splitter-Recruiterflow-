@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Expenses, Fontainhas walls</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&amp;family=DM+Sans:wght@400..800&amp;display=swap">
+<style>
+body{margin:0;background:#FFF1E8}
+a{color:#10183A}a:hover{color:#10183A}
+:focus-visible{outline:3px solid #1D3C9E;outline-offset:3px}
+</style>
+</head>
+<body>
+<div style="min-height: 100vh; background: #FFF1E8; color: #10183A; font-family: 'DM Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+  <nav aria-label="Main" style="max-width: 1160px; margin: 0 auto; padding: 22px 24px 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+    <a href="expenses-desktop.html" style="font-family: 'Lilita One', sans-serif; font-size: 34px; line-height: 1; color: #1D3C9E; text-decoration: none">hisaab!</a>
+    <div style="display: flex; gap: 10px">
+      <a href="expenses-desktop.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border: 3px solid #10183A; border-radius: 999px; background: #10183A; color: #FFFFFF; font-weight: 700; text-decoration: none">Expenses</a>
+      <a href="add-expense-errors.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 0 20px; border: 3px solid #10183A; border-radius: 999px; background: #1D3C9E; color: #FFFFFF; font-weight: 800; text-decoration: none; box-shadow: 4px 4px 0 #10183A"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="M12.3 4.6c-.2 4.8 0 9.6-.4 14.6M4.8 11.7c4.9.3 9.6-.2 14.5.4"></path></svg>Add expense</a>
+    </div>
+  </nav>
+
+  <main style="max-width: 1160px; margin: 0 auto; padding: 28px 24px 72px; display: flex; flex-direction: column; gap: 36px">
+
+    <header style="position: relative; background: #F2B33D; color: #10183A; border: 3px solid #10183A; border-radius: 28px; box-shadow: 8px 8px 0 #10183A; overflow: hidden">
+      <div style="padding: 40px 40px 44px; display: flex; flex-direction: column; gap: 14px">
+        <h1 style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 96px; line-height: 0.9">Goa,<br>12–15 March</h1>
+        <p style="margin: 0; font-size: 19px; color: #5C3B00">Five friends, six shared bills. Here’s who owes whom.</p>
+      </div>
+      <div aria-hidden="true" style="height: 44px; border-top: 3px solid #10183A; background: repeating-linear-gradient(90deg, #1D3C9E 0 26px, #FFFFFF 26px 52px)"></div>
+      <div style="position: absolute; right: 44px; top: 40px; padding: 22px 32px; border: 3px solid #10183A; border-radius: 20px; background: #1D3C9E; color: #FFFFFF; transform: rotate(6deg); box-shadow: 5px 5px 0 #10183A; text-align: center; line-height: 1.1">
+        <span style="display: block; font-weight: 800; font-size: 19px">spent together</span>
+        <span style="font-family: 'Lilita One', sans-serif; font-size: 66px; font-variant-numeric: tabular-nums">₹42,249.99</span>
+      </div>
+    </header>
+
+    <div role="status" style="display: flex; align-items: center; gap: 14px; padding: 10px 10px 10px 16px; background: #FFFFFF; border: 3px solid #10183A; border-radius: 18px; box-shadow: 4px 4px 0 #10183A">
+      <span aria-hidden="true" style="flex: none; width: 34px; height: 34px; border-radius: 50%; border: 3px solid #10183A; background: #9BE7E0; display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10183A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.8c1.6 1.4 3 2.9 4.4 4.6 3.1-4.4 6.3-8.4 10.6-11.9"></path></svg></span>
+      <span style="flex: 1; font-weight: 700">Added “Airport cab” to the bill. Balances are up to date.</span>
+      <button type="button" aria-label="Dismiss message" style="min-width: 44px; min-height: 44px; border: 3px solid #10183A; border-radius: 12px; background: #FFFFFF; color: #10183A; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6.2 5.8c4 4.1 7.9 8.2 11.6 12.6M18.1 6.1c-4.2 3.9-8.2 7.9-12 12.1"></path></svg></button>
+    </div>
+
+    <section aria-labelledby="cbal-h" style="display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+        <h2 id="cbal-h" style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 44px; line-height: 1">Who owes what</h2>
+        <p style="margin: 0; color: #4A5274">Aqua tickets get money back, pink tickets owe. The bar shows how big each balance is.</p>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px">
+        <li style="background: #9BE7E0; border: 3px solid #10183A; border-radius: 18px; box-shadow: 4px 4px 0 #10183A; transform: rotate(-2deg); overflow: hidden">
+          <div style="padding: 14px 14px 10px; display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; border: 3px solid #10183A; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800">A</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px">Aarav</span></div>
+          <div style="padding: 10px 14px 14px; border-top: 3px dashed #10183A"><span style="display: block; font-weight: 700; font-size: 14px">gets back</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px; font-variant-numeric: tabular-nums">₹18,554.20</span><div aria-hidden="true" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); height: 12px; margin-top: 8px; background: rgba(255,255,255,0.7); border: 2px solid #10183A; border-radius: 999px; overflow: hidden"><div style="display: flex; justify-content: flex-end; border-right: 2px solid #10183A"></div><div style="display: flex"><div style="width: 100%; min-width: 5px; background: #10183A"></div></div></div></div>
+        </li>
+        <li style="background: #9BE7E0; border: 3px solid #10183A; border-radius: 18px; box-shadow: 4px 4px 0 #10183A; transform: rotate(1.5deg); overflow: hidden">
+          <div style="padding: 14px 14px 10px; display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; border: 3px solid #10183A; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800">K</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px">Kabir</span></div>
+          <div style="padding: 10px 14px 14px; border-top: 3px dashed #10183A"><span style="display: block; font-weight: 700; font-size: 14px">gets back</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px; font-variant-numeric: tabular-nums">₹554.08</span><div aria-hidden="true" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); height: 12px; margin-top: 8px; background: rgba(255,255,255,0.7); border: 2px solid #10183A; border-radius: 999px; overflow: hidden"><div style="display: flex; justify-content: flex-end; border-right: 2px solid #10183A"></div><div style="display: flex"><div style="width: 3%; min-width: 5px; background: #10183A"></div></div></div></div>
+        </li>
+        <li style="background: #FF9DB5; border: 3px solid #10183A; border-radius: 18px; box-shadow: 4px 4px 0 #10183A; transform: rotate(-1deg); overflow: hidden">
+          <div style="padding: 14px 14px 10px; display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; border: 3px solid #10183A; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800">D</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px">Diya</span></div>
+          <div style="padding: 10px 14px 14px; border-top: 3px dashed #10183A"><span style="display: block; font-weight: 700; font-size: 14px">owes</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px; font-variant-numeric: tabular-nums">₹3,695.78</span><div aria-hidden="true" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); height: 12px; margin-top: 8px; background: rgba(255,255,255,0.7); border: 2px solid #10183A; border-radius: 999px; overflow: hidden"><div style="display: flex; justify-content: flex-end; border-right: 2px solid #10183A"><div style="width: 19.9%; min-width: 5px; background: #10183A"></div></div><div style="display: flex"></div></div></div>
+        </li>
+        <li style="background: #FF9DB5; border: 3px solid #10183A; border-radius: 18px; box-shadow: 4px 4px 0 #10183A; transform: rotate(2deg); overflow: hidden">
+          <div style="padding: 14px 14px 10px; display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; border: 3px solid #10183A; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800">R</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px">Rohan</span></div>
+          <div style="padding: 10px 14px 14px; border-top: 3px dashed #10183A"><span style="display: block; font-weight: 700; font-size: 14px">owes</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px; font-variant-numeric: tabular-nums">₹7,300.00</span><div aria-hidden="true" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); height: 12px; margin-top: 8px; background: rgba(255,255,255,0.7); border: 2px solid #10183A; border-radius: 999px; overflow: hidden"><div style="display: flex; justify-content: flex-end; border-right: 2px solid #10183A"><div style="width: 39.3%; min-width: 5px; background: #10183A"></div></div><div style="display: flex"></div></div></div>
+        </li>
+        <li style="background: #FF9DB5; border: 3px solid #10183A; border-radius: 18px; box-shadow: 4px 4px 0 #10183A; transform: rotate(-2.5deg); overflow: hidden">
+          <div style="padding: 14px 14px 10px; display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 36px; height: 36px; border-radius: 50%; border: 3px solid #10183A; background: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800">M</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px">Meera</span></div>
+          <div style="padding: 10px 14px 14px; border-top: 3px dashed #10183A"><span style="display: block; font-weight: 700; font-size: 14px">owes</span><span style="font-family: 'Lilita One', sans-serif; font-size: 24px; font-variant-numeric: tabular-nums">₹8,112.50</span><div aria-hidden="true" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); height: 12px; margin-top: 8px; background: rgba(255,255,255,0.7); border: 2px solid #10183A; border-radius: 999px; overflow: hidden"><div style="display: flex; justify-content: flex-end; border-right: 2px solid #10183A"><div style="width: 43.7%; min-width: 5px; background: #10183A"></div></div><div style="display: flex"></div></div></div>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="cexp-h" style="display: flex; flex-direction: column; gap: 18px">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+        <h2 id="cexp-h" style="margin: 0; font-family: 'Lilita One', sans-serif; font-weight: 400; font-size: 44px; line-height: 1">The bill</h2>
+        <div role="group" aria-label="Filter by category" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" aria-pressed="true" style="min-height: 44px; padding: 0 18px; border: 3px solid #10183A; border-radius: 999px; background: #10183A; color: #FFFFFF; font: inherit; font-weight: 700; cursor: pointer">All</button>
+          <button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; border: 3px solid #10183A; border-radius: 999px; background: #FFE3A3; color: #10183A; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 3px 3px 0 #10183A">Food</button>
+          <button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; border: 3px solid #10183A; border-radius: 999px; background: #C9D6FF; color: #10183A; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 3px 3px 0 #10183A">Travel</button>
+          <button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; border: 3px solid #10183A; border-radius: 999px; background: #FFD0C2; color: #10183A; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 3px 3px 0 #10183A">Stay</button>
+          <button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; border: 3px solid #10183A; border-radius: 999px; background: #BDEFE0; color: #10183A; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 3px 3px 0 #10183A">Activities</button>
+          <button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; border: 3px solid #10183A; border-radius: 999px; background: #E4E7EF; color: #10183A; font: inherit; font-weight: 700; cursor: pointer; box-shadow: 3px 3px 0 #10183A">Other</button>
+        </div>
+      </div>
+
+      <div style="filter: drop-shadow(6px 6px 0 #10183A)">
+        <div style="background: #FFFFFF; border: 3px solid #10183A; border-bottom: 0; border-radius: 24px 24px 0 0; padding: 22px 28px 8px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px; padding-bottom: 12px; border-bottom: 3px solid #10183A">
+            <span style="font-family: 'Lilita One', sans-serif; font-size: 26px; color: #1D3C9E">Table for five</span>
+            <span style="font-weight: 700; color: #4A5274">6 items, newest first</span>
+          </div>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; border-collapse: collapse; min-width: 860px">
+              <thead>
+                <tr style="text-align: left; font-size: 14px">
+                  <th scope="col" style="padding: 12px 8px 8px 0; font-weight: 800">Date</th>
+                  <th scope="col" style="padding: 12px 8px 8px; font-weight: 800">Description</th>
+                  <th scope="col" style="padding: 12px 8px 8px; font-weight: 800">Category</th>
+                  <th scope="col" style="padding: 12px 8px 8px; font-weight: 800">Paid by</th>
+                  <th scope="col" style="padding: 12px 8px 8px; font-weight: 800">Split</th>
+                  <th scope="col" style="padding: 12px 8px 8px; font-weight: 800; text-align: right">Amount</th>
+                  <th scope="col" style="padding: 12px 0 8px 8px"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-top: 3px dotted #10183A">
+                  <td style="padding: 12px 8px 12px 0; white-space: nowrap; font-weight: 700">15 Mar</td>
+                  <td style="padding: 12px 8px; font-weight: 800; font-size: 17px">Airport cab</td>
+                  <td style="padding: 12px 8px"><span style="padding: 2px 10px; border: 2px solid #10183A; border-radius: 999px; background: #C9D6FF; font-size: 13px; font-weight: 800">Travel</span></td>
+                  <td style="padding: 12px 8px">Aarav</td>
+                  <td style="padding: 12px 8px; color: #4A5274">Percentages, 3 people</td>
+                  <td style="padding: 12px 8px; text-align: right; font-family: 'Lilita One', sans-serif; font-size: 20px; font-variant-numeric: tabular-nums">₹1,499.99</td>
+                  <td style="padding: 6px 0 6px 8px; text-align: right"><button type="button" aria-label="Delete Airport cab" style="min-width: 44px; min-height: 44px; border: 3px solid #10183A; border-radius: 12px; background: #FFFFFF; color: #10183A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.6c5.2-.5 10.4-.3 15.6.1M9.3 6.3c-.1-1.4.3-2.3 1.4-2.4 1.2-.1 2.4-.1 3.4.2.8.3.9 1.2.8 2.1M6.3 6.9c.4 4.3.6 8.7 1.3 12.9.2 1 1 1.4 2 1.4 1.7.1 3.5.1 5.2-.1 1-.1 1.6-.6 1.7-1.6.4-4.2.7-8.4 1-12.5M10.2 10.4c.1 2.6.2 4.9.3 7.2M13.9 10.2c-.1 2.5-.2 5-.4 7.3"></path></svg></button></td>
+                </tr>
+                <tr style="border-top: 3px dotted #10183A">
+                  <td style="padding: 12px 8px 12px 0; white-space: nowrap; font-weight: 700">14 Mar</td>
+                  <td style="padding: 12px 8px; font-weight: 800; font-size: 17px">Groceries</td>
+                  <td style="padding: 12px 8px"><span style="padding: 2px 10px; border: 2px solid #10183A; border-radius: 999px; background: #FFE3A3; font-size: 13px; font-weight: 800">Food</span></td>
+                  <td style="padding: 12px 8px">Meera</td>
+                  <td style="padding: 12px 8px; color: #4A5274">Equally, 3 people</td>
+                  <td style="padding: 12px 8px; text-align: right; font-family: 'Lilita One', sans-serif; font-size: 20px; font-variant-numeric: tabular-nums">₹1,000.00</td>
+                  <td style="padding: 6px 0 6px 8px; text-align: right"><button type="button" aria-label="Delete Groceries" style="min-width: 44px; min-height: 44px; border: 3px solid #10183A; border-radius: 12px; background: #FFFFFF; color: #10183A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.6c5.2-.5 10.4-.3 15.6.1M9.3 6.3c-.1-1.4.3-2.3 1.4-2.4 1.2-.1 2.4-.1 3.4.2.8.3.9 1.2.8 2.1M6.3 6.9c.4 4.3.6 8.7 1.3 12.9.2 1 1 1.4 2 1.4 1.7.1 3.5.1 5.2-.1 1-.1 1.6-.6 1.7-1.6.4-4.2.7-8.4 1-12.5M10.2 10.4c.1 2.6.2 4.9.3 7.2M13.9 10.2c-.1 2.5-.2 5-.4 7.3"></path></svg></button></td>
+                </tr>
+                <tr style="border-top: 3px dotted #10183A">
+                  <td style="padding: 12px 8px 12px 0; white-space: nowrap; font-weight: 700">13 Mar</td>
+                  <td style="padding: 12px 8px; font-weight: 800; font-size: 17px">Scuba diving</td>
+                  <td style="padding: 12px 8px"><span style="padding: 2px 10px; border: 2px solid #10183A; border-radius: 999px; background: #BDEFE0; font-size: 13px; font-weight: 800">Activities</span></td>
+                  <td style="padding: 12px 8px">Kabir</td>
+                  <td style="padding: 12px 8px; color: #4A5274">Exact amounts, 3 people</td>
+                  <td style="padding: 12px 8px; text-align: right; font-family: 'Lilita One', sans-serif; font-size: 20px; font-variant-numeric: tabular-nums">₹10,500.00</td>
+                  <td style="padding: 6px 0 6px 8px; text-align: right"><button type="button" aria-label="Delete Scuba diving" style="min-width: 44px; min-height: 44px; border: 3px solid #10183A; border-radius: 12px; background: #FFFFFF; color: #10183A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.6c5.2-.5 10.4-.3 15.6.1M9.3 6.3c-.1-1.4.3-2.3 1.4-2.4 1.2-.1 2.4-.1 3.4.2.8.3.9 1.2.8 2.1M6.3 6.9c.4 4.3.6 8.7 1.3 12.9.2 1 1 1.4 2 1.4 1.7.1 3.5.1 5.2-.1 1-.1 1.6-.6 1.7-1.6.4-4.2.7-8.4 1-12.5M10.2 10.4c.1 2.6.2 4.9.3 7.2M13.9 10.2c-.1 2.5-.2 5-.4 7.3"></path></svg></button></td>
+                </tr>
+                <tr style="border-top: 3px dotted #10183A">
+                  <td style="padding: 12px 8px 12px 0; white-space: nowrap; font-weight: 700">13 Mar</td>
+                  <td style="padding: 12px 8px; font-weight: 800; font-size: 17px">Scooter rental</td>
+                  <td style="padding: 12px 8px"><span style="padding: 2px 10px; border: 2px solid #10183A; border-radius: 999px; background: #C9D6FF; font-size: 13px; font-weight: 800">Travel</span></td>
+                  <td style="padding: 12px 8px">Rohan</td>
+                  <td style="padding: 12px 8px; color: #4A5274">Percentages, 3 people</td>
+                  <td style="padding: 12px 8px; text-align: right; font-family: 'Lilita One', sans-serif; font-size: 20px; font-variant-numeric: tabular-nums">₹2,000.00</td>
+                  <td style="padding: 6px 0 6px 8px; text-align: right"><button type="button" aria-label="Delete Scooter rental" style="min-width: 44px; min-height: 44px; border: 3px solid #10183A; border-radius: 12px; background: #FFFFFF; color: #10183A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.6c5.2-.5 10.4-.3 15.6.1M9.3 6.3c-.1-1.4.3-2.3 1.4-2.4 1.2-.1 2.4-.1 3.4.2.8.3.9 1.2.8 2.1M6.3 6.9c.4 4.3.6 8.7 1.3 12.9.2 1 1 1.4 2 1.4 1.7.1 3.5.1 5.2-.1 1-.1 1.6-.6 1.7-1.6.4-4.2.7-8.4 1-12.5M10.2 10.4c.1 2.6.2 4.9.3 7.2M13.9 10.2c-.1 2.5-.2 5-.4 7.3"></path></svg></button></td>
+                </tr>
+                <tr style="border-top: 3px dotted #10183A">
+                  <td style="padding: 12px 8px 12px 0; white-space: nowrap; font-weight: 700">12 Mar</td>
+                  <td style="padding: 12px 8px; font-weight: 800; font-size: 17px">Villa booking</td>
+                  <td style="padding: 12px 8px"><span style="padding: 2px 10px; border: 2px solid #10183A; border-radius: 999px; background: #FFD0C2; font-size: 13px; font-weight: 800">Stay</span></td>
+                  <td style="padding: 12px 8px">Aarav</td>
+                  <td style="padding: 12px 8px; color: #4A5274">Equally, 5 people</td>
+                  <td style="padding: 12px 8px; text-align: right; font-family: 'Lilita One', sans-serif; font-size: 20px; font-variant-numeric: tabular-nums">₹24,000.00</td>
+                  <td style="padding: 6px 0 6px 8px; text-align: right"><button type="button" aria-label="Delete Villa booking" style="min-width: 44px; min-height: 44px; border: 3px solid #10183A; border-radius: 12px; background: #FFFFFF; color: #10183A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.6c5.2-.5 10.4-.3 15.6.1M9.3 6.3c-.1-1.4.3-2.3 1.4-2.4 1.2-.1 2.4-.1 3.4.2.8.3.9 1.2.8 2.1M6.3 6.9c.4 4.3.6 8.7 1.3 12.9.2 1 1 1.4 2 1.4 1.7.1 3.5.1 5.2-.1 1-.1 1.6-.6 1.7-1.6.4-4.2.7-8.4 1-12.5M10.2 10.4c.1 2.6.2 4.9.3 7.2M13.9 10.2c-.1 2.5-.2 5-.4 7.3"></path></svg></button></td>
+                </tr>
+                <tr style="border-top: 3px dotted #10183A">
+                  <td style="padding: 12px 8px 12px 0; white-space: nowrap; font-weight: 700">12 Mar</td>
+                  <td style="padding: 12px 8px; font-weight: 800; font-size: 17px">Beach shack dinner</td>
+                  <td style="padding: 12px 8px"><span style="padding: 2px 10px; border: 2px solid #10183A; border-radius: 999px; background: #FFE3A3; font-size: 13px; font-weight: 800">Food</span></td>
+                  <td style="padding: 12px 8px">Diya</td>
+                  <td style="padding: 12px 8px; color: #4A5274">Equally, 4 people</td>
+                  <td style="padding: 12px 8px; text-align: right; font-family: 'Lilita One', sans-serif; font-size: 20px; font-variant-numeric: tabular-nums">₹3,250.00</td>
+                  <td style="padding: 6px 0 6px 8px; text-align: right"><button type="button" aria-label="Delete Beach shack dinner" style="min-width: 44px; min-height: 44px; border: 3px solid #10183A; border-radius: 12px; background: #FFFFFF; color: #10183A; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.2 6.6c5.2-.5 10.4-.3 15.6.1M9.3 6.3c-.1-1.4.3-2.3 1.4-2.4 1.2-.1 2.4-.1 3.4.2.8.3.9 1.2.8 2.1M6.3 6.9c.4 4.3.6 8.7 1.3 12.9.2 1 1 1.4 2 1.4 1.7.1 3.5.1 5.2-.1 1-.1 1.6-.6 1.7-1.6.4-4.2.7-8.4 1-12.5M10.2 10.4c.1 2.6.2 4.9.3 7.2M13.9 10.2c-.1 2.5-.2 5-.4 7.3"></path></svg></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 4px; padding: 14px 0 10px; border-top: 3px solid #10183A">
+            <span style="font-family: 'Lilita One', sans-serif; font-size: 26px">Total shown</span>
+            <span style="font-family: 'Lilita One', sans-serif; font-size: 30px; color: #1D3C9E; font-variant-numeric: tabular-nums">₹42,249.99</span>
+          </div>
+        </div>
+        <div aria-hidden="true" style="height: 16px; background: linear-gradient(135deg, #FFFFFF 50%, transparent 50%) 0 0 / 20px 16px repeat-x, linear-gradient(225deg, #FFFFFF 50%, transparent 50%) 0 0 / 20px 16px repeat-x"></div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

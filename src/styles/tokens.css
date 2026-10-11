@@ -1,0 +1,54 @@
+/* Design tokens: every colour, size and font used in the app lives here.
+   Components use them with var(--name), so a change here updates everywhere.
+   Theme: "Fontainhas walls" (ochre house walls, cobalt doors, a shack awning). */
+
+:root {
+  /* Surfaces */
+  --page: #fff1e8;      /* pale peach page */
+  --surface: #ffffff;   /* receipt, inputs, cards */
+  --wall: #f2b33d;      /* ochre hero */
+
+  /* Text and lines */
+  --ink: #10183a;       /* text, outlines, shadows */
+  --muted: #4a5274;     /* secondary text */
+
+  /* Action: the only colour that means "you can press this" */
+  --action: #1d3c9e;
+  --on-action: #ffffff;
+
+  /* Balances */
+  --gets-back: #9be7e0;
+  --owes: #ff9db5;
+
+  /* Errors */
+  --error-border: #d92d20;
+  --error-text: #b42318;
+  --error-fill: #fff1f0;
+
+  /* Category chips */
+  --cat-food: #ffe3a3;
+  --cat-travel: #c9d6ff;
+  --cat-stay: #ffd0c2;
+  --cat-activities: #bdefe0;
+  --cat-other: #e4e7ef;
+
+  /* Shape */
+  --line: 3px solid var(--ink);
+  --shadow: 4px 4px 0 var(--ink);
+  --shadow-lg: 6px 6px 0 var(--ink);
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 24px;
+  --tap: 44px; /* minimum height of anything you can press */
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+
+  /* Type */
+  --font-display: 'Lilita One', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}

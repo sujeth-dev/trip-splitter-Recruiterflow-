@@ -1,6 +1,10 @@
 # Hisaab · Trip Splitter
 
-Five friends, one Goa trip, six shared bills, and the question of who owes whom.
+Five friends, one Goa trip, and the question of who owes whom.
+
+## How I work
+
+My strength is product and interaction design: turning a brief into an experience that feels alive and is easy to use. For this project I spent most of my effort deciding what the app should do and how it should feel. I explored several visual directions and chose a Goa "beach-shack bill" theme. I designed how balances, errors and empty states should read. I wrote a detailed specification of the behaviour, rules and edge cases ([docs/BUILD_PROMPT.md](docs/BUILD_PROMPT.md)), and the approved designs are in [docs/design/](docs/design/).
 
 ## Run it
 
@@ -9,32 +13,28 @@ npm install
 npm run dev
 ```
 
-Node 22 or newer. The other scripts are `npm run typecheck`, `npm run lint`, `npm test` and `npm run build`.
+Node 22+. Also `npm run typecheck`, `npm run lint`, `npm test` and `npm run build`.
 
-**What's not finished:** nothing known. Typecheck, lint, 157 tests and the build all pass cleanly. The trip title is hard-coded, as there is no trip-editing feature. I checked the layout by hand at 360px, 768px and 1280px and walked the app with the keyboard only; there are no automated browser tests.
+**What's not finished:** nothing known — all four checks pass. The trip title is hard-coded, as there is no trip-editing feature. I checked 360/768/1280px and keyboard-only use by hand; no automated browser tests.
 
 ## Three decisions, and why
 
-**1. Money is always an integer number of paise.** ₹1,250.50 is stored as `125050`, never `1250.5`. The obvious parser, `parseFloat(text) * 100`, returns `125049.99999999999` for that value, so mine reads the string instead: split on the dot, pad the decimals to two digits, combine with integers. Splitting then follows one rule, used everywhere:
+**1. Money is always integer paise.** ₹1,250.50 is stored as `125050`. The obvious parser, `parseFloat(text) * 100`, returns `125049.99999999999`, so mine reads the string instead. Splitting follows one rule, used everywhere:
 
-> Shares are first rounded down to whole paise. The leftover paise (always fewer than the number of people) are handed out one at a time to the people in the split, in the order of the trip's member list, skipping anyone whose share is 0.
+> Shares are rounded down to whole paise. The leftover paise are handed out one at a time, in the order of the trip's member list, skipping anyone whose share is 0.
 
-That is why ₹100 ÷ 3 comes out as ₹33.34 + ₹33.33 + ₹33.33, why an expense's shares always add up to its amount, and why the five balances always sum to exactly ₹0. Percentages become integer basis points first, so "adds up to 100%" is an exact check, never a floating-point one.
+That is why ₹100 ÷ 3 is ₹33.34 + ₹33.33 + ₹33.33, and why the balances always sum to exactly ₹0. Percentages become integer basis points first, so "totals 100%" is an exact check.
 
-**2. Redux holds only the members and the expenses.** Balances, totals and the newest-first list are derived with `createSelector` and never stored, so they cannot drift from their source. The form draft, field errors, category filter and the row awaiting deletion are component state: short-lived details no other page needs. localStorage is written in one place only, a `store.subscribe` listener that fires when `members` or `expenses` changes by reference. Reducers stay pure; no component touches storage.
+**2. Redux holds only the members and the expenses.** Balances, totals and the sorted list are derived with `createSelector`, never stored, so they cannot drift. The form draft, errors, filter and pending deletion are component state. localStorage is written in one place: a `store.subscribe` listener firing on a reference change, so reducers stay pure.
 
-**3. The form is a draft of strings handed to one pure function.** Every field is a string, because that is what an `<input>` holds. `validateExpenseDraft(draft, members, today)` returns a discriminated union: `{ ok: true, expense }` or `{ ok: false, errors }`. It imports no React and reads no clock — `today` is passed in — so the form and the tests share one copy of the rules.
+**3. The form is a draft of strings fed to one pure function.** `validateExpenseDraft(draft, members, today)` returns `{ ok: true, expense }` or `{ ok: false, errors }`. No React, no clock — `today` is a parameter — so the form and the tests share one copy of the rules.
 
 The lint config bans `any`, `as` (except `as const`), `!` and `@ts-` comments. Nothing in `src/` needed an exception.
 
 ## With another day
 
-Editing an expense; the filter synced to the URL so a view can be shared; settle-up suggestions that minimise the number of payments; Playwright end-to-end tests; self-hosted fonts.
+Editing an expense; the filter synced to the URL; settle-up suggestions; Playwright end-to-end tests; self-hosted fonts.
 
-## Design
+## How I used AI tools
 
-The approved mockups are in [docs/design/](docs/design/). The direction is "Fontainhas walls": an ochre hero over a striped shack awning, cobalt reserved strictly for things you can press, and 3px ink outlines with hard offset shadows on a white paper receipt.
-
-## How I used AI
-
-<!-- WRITE THIS YOURSELF -->
+I used an AI coding assistant to turn my designs and specification into code, working in a loop of plan → build → test → review, milestone by milestone. My part was writing the prompts and the spec, keeping context across separate documents (spec, decisions, walkthrough), defining checks the AI had to pass, such as the exact sample balances and a lint rule banning `any`/`as`/`!`, and reviewing the results. Writing code by hand is where I'm actively growing; reading, reasoning about and changing it is where I already feel at home, and this project is proof of that.
